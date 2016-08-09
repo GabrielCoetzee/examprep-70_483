@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Example1._72
 {
@@ -6,10 +7,7 @@ namespace Example1._72
     {
         static void Main(string[] args)
         {
-        }
 
-        private static void CannotChangeForeachIterationVariable()
-        {
             var people = new List<Person>
             {
                 new Person() { FirstName = "John", LastName = "Doe"},
@@ -29,6 +27,7 @@ namespace Example1._72
                 while (e.MoveNext())
                 {
                     v = e.Current;
+                    Console.WriteLine(v.LastName);
                 }
             }
             finally
@@ -36,12 +35,14 @@ namespace Example1._72
                 var d = e as System.IDisposable;
                 if (d != null) d.Dispose();
             }
+            Console.Write("Press a key to exit");
+            Console.ReadKey();
         }
-    }
 
-    internal class Person
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        internal class Person
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+        }
     }
 }
