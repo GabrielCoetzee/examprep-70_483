@@ -18,7 +18,7 @@ namespace Example2._79
         }
 
         // Finalizer (destructor)
-        public ~SomeType()
+        ~SomeType()
         {
 
         }
